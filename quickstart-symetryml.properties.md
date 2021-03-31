@@ -2,7 +2,6 @@
 
 The following properties can be set in the Kafka connector configuration file. Other Kafka-specific configuration properties can be added, of course.
 
-
 ## Required Kafka Properties
 
 `connector.class`
