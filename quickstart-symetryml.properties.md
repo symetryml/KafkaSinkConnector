@@ -107,7 +107,7 @@ For example, for tasks.max = 2, the list of properties may look like this:
 
 `sml.reconnect.backoff.max.ms`
 - The maximum period in ms allowed between tries to send a DataFrame to the SymetryML service. This value specifies the longest possible delay between tries. See the implementation of the graceful backoff algorithm in `sml.reconnect.backoff.ms` for how it is used.
-- default: 60000
+- default: 10000
 
 `sml.reconnect.backoff.ms`
 - The base period in ms between tries to send a DataFrame to the SymetryML service. This value gets modified by the graceful backoff algorithm.
