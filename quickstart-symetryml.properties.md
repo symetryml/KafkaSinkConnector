@@ -118,7 +118,8 @@ int baseWait = mRetryDelayMs * b; // mRetryDelayMs configured by sml.reconnect.b
 // Random jitter.
 double j = mRandom.nextDouble();
 int waitMs = (int) (baseWait * j);
-context.timeout(waitMs);
+...
+Thread.sleep(waitMs);
 ```
 
 `sml.backoff.max.retries`
