@@ -123,7 +123,7 @@ int baseWait = mRetryDelayMs * b; // mRetryDelayMs configured by sml.reconnect.b
 double j = mRandom.nextDouble();
 int waitMs = (int) (baseWait * j);
 if (waitMs > mRetryDelayMaxMs) {  // mRetryDelayMaxMs configured by sml.reconnect.backoff.max.ms
-		waitMs = mRetryDelayMaxMs;
+    waitMs = mRetryDelayMaxMs;
 }
 ...
 Thread.sleep(waitMs);
