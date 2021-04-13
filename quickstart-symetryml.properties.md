@@ -105,19 +105,26 @@ For example, for tasks.max = 2, the list of properties may look like this:
 - Cap the number characters of the body of each request that are logged in the internal REST utility.
 - default: true
 
+`sml.reconnect.backoff.max.ms`
+- The maximum period in ms allowed between tries to send a DataFrame to the SymetryML service. This value specifies the longest possible delay between tries. See the implementation of the graceful backoff algorithm in `sml.reconnect.backoff.ms` for how it is used.
+- default: 60000
+
 `sml.reconnect.backoff.ms`
-- The base period in ms between tries to send a DataFrame to the SymetryML service. This value gets augmented by the graceful backoff algorithm.
+- The base period in ms between tries to send a DataFrame to the SymetryML service. This value gets modified by the graceful backoff algorithm.
 - default: 5000
-- Here is the Java code that implements the algorithm:
+- Here is the Java code that implements the delay period of the algorithm:
 
 ```
 // Backoff
-double bDbl = Math.pow(2, inTries); // inTries 'max tries' configured by sml.backoff.max.retries
+double bDbl = Math.pow(2, inTries); // inTries is limited by 'max tries' configured by sml.backoff.max.retries
 int b = (int) bDbl;
 int baseWait = mRetryDelayMs * b; // mRetryDelayMs configured by sml.reconnect.backoff.ms
 // Random jitter.
 double j = mRandom.nextDouble();
 int waitMs = (int) (baseWait * j);
+if (waitMs > mRetryDelayMaxMs) {  // mRetryDelayMaxMs configured by sml.reconnect.backoff.max.ms
+		waitMs = mRetryDelayMaxMs;
+}
 ...
 Thread.sleep(waitMs);
 ```
