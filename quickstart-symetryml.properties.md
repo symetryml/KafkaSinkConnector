@@ -110,7 +110,7 @@ For example, for tasks.max = 2, the list of properties may look like this:
 - default: 10000
 
 `sml.reconnect.backoff.ms`
-- The base period in ms between tries to send a DataFrame to the SymetryML service. This value gets modified by the graceful backoff algorithm.
+- The base period in ms between tries to send a DataFrame to the SymetryML service. The graceful backoff algorithm derives the actual period from this value.
 - default: 5000
 - Here is the Java code that implements the delay period of the algorithm:
 
