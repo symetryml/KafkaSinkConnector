@@ -14,8 +14,8 @@ We will use Confluent's Kafka Connect SFTP Source Connector as the source connec
 
 
 ## Copy the SML Kafka Connector package to Kafka Connect
-* Unzip symetryml-kafka-connector-1.0.0.zip locally:  
-	`docker cp symetryml-kafka-connector-1.0.0 connect:/usr/share/java/`  
+* Unzip symetryml-kafka-connector-1.0.3.zip locally:  
+	`docker cp symetryml-kafka-connector-1.0.3 connect:/usr/share/java/`  
 * We assume that /usr/share/java is in CONNECT_PLUGIN_PATH.
 * Ensure that the unix file permissions are sufficient. 755 should do.
 
