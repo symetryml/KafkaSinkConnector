@@ -3,7 +3,7 @@
 Additional information about SymetryML can be found at the following URLs:
 
 * SymetryML Kafka Connector HOWTO and tutorials
- * link:SMLConnector-Tutorial.md
+ * [SMLConnector-Tutorial.md](SMLConnector-Tutorial.md)
 
 # About SymetryML Real-Time Machine Learning
 
