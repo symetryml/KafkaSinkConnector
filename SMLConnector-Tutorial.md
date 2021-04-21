@@ -36,9 +36,9 @@ For example, for a Kafka cluster:
 ## Populate the Kafka Topic with the CSV file
 
 * Configure etc/sftp_housing_source.json.
-* Set `input.path` to the "etc" directory, which contains housing.csv.
-* Set `error.path`, "finished.path" to the "temp" directory.
-* Set `sftp.username`, `sftp.password`, "sftp.host" as required.  
+* Set `input.path` to the directory which contains housing.csv, e.g. `etc`.
+* Set `error.path`, `finished.path` to desired directories, e.g. `/tmp`.
+* Set `sftp.username`, `sftp.password`, `sftp.host` as required.  
 * On Mac, enable Remote Login in System Preferences/Sharing in order to enable the SFTP server. See [https://www.maciverse.com/how-to-turn-on-your-macs-sftp.html].
 * From the ${SMLCONNECTORZIP} folder:
 `curl -XPOST -H "Content-Type: application/json" --data @etc/sftp_housing_source.json http://localhost:8083/connectors`
@@ -53,5 +53,5 @@ For example, for a Kafka cluster:
 * On Mac, use `http://host.docker.internal:8081` instead of `http://localhost:8081` for `value.converter.schema.registry.url`.
 * Start the SML connector:
 `curl -XPOST -H "Content-Type: application/json" --data @etc/quickstart-symetryml-properties.json http://localhost:8083/connectors`
-* Explore the project specified by "sml.project" in order to verify that it learned "housing.csv" from the topic "sml_housing".
+* Explore the project specified by 'sml.project' in order to verify that it learned `housing.csv` from the topic `sml_housing`.
 
