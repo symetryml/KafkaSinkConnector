@@ -151,7 +151,7 @@ Thread.sleep(waitMs);
 - default: false
 
 
-# Sample configuration File
+# Sample Configuration File
 ```
 {
   "name": "sml_housing_sink",
